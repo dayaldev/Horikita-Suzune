@@ -145,7 +145,7 @@ class MirrorListener(listeners.MirrorListeners):
 
     def onUploadComplete(self, link: str, size):
         with download_dict_lock:
-            msg = f'<b>╭──[File Name: \n╽ </b> <code>{download_dict[self.uid].name()}</code>\n<b>┣⊸[File Size]: \n╽ </b><code>{size}</code>'
+            msg = f'<b>╭──[File Name:</b> <code>{download_dict[self.uid].name()}</code>\n<b>┣⊸[File Size]:</b><code>{size}</code>'
             buttons = button_build.ButtonMaker()
             if SHORTENER is not None and SHORTENER_API is not None:
                 surl = requests.get('https://{}/api?api={}&url={}&format=text'.format(SHORTENER, SHORTENER_API, link)).text
@@ -173,7 +173,7 @@ class MirrorListener(listeners.MirrorListeners):
             else:
                 uname = f'<a href="tg://user?id={self.message.from_user.id}">{self.message.from_user.first_name}</a>'
             if uname is not None:
-                msg += f'\n<b>┣⊸This AssHole:</b> {uname}\n<b>┣⊸Uploaded This Fill Into My Drive. He Will Be Dead Now.</b>\n<b>┣⊸I Am AI Version Of Horikita, And Dont Try To FUCK With Me. Because You Cant AssHole.</b>\n<b>┣⊸I Am Powered By The Mobile Of Horikita, So I Will Take A [10-Min] Nap Every 24-Hour.</b>'
+                msg += f'\n<b>┣⊸This AssHole:</b> {uname}\n<b>\n╽ Uploaded This Fill Into My Drive. He Will Be Dead Now.</b>\n<b>┣⊸I Am AI Version Of Horikita, And Dont Try To FUCK With Me. Because You Cant AssHole.</b>\n<b>┣⊸I Am Powered By The Mobile Of Horikita, So I Will Take A [10-Min] Nap Every 24-Hour.</b>'
             try:
                 fs_utils.clean_download(download_dict[self.uid].path())
             except FileNotFoundError:
@@ -265,10 +265,10 @@ def _mirror(bot, update, isTar=False, extract=False):
         else:
             mega_dl = MegaDownloadHelper()
             mega_dl.add_download(link, f'{DOWNLOAD_DIR}/{listener.uid}/', listener)
-            sendMessage(f"<b>OwO, I Smell Something Cheesy. Now Don't Tickle Me Here -->/{BotCommands.StatusCommand}\nBecause It'll Make Me Wet.\nI Am So Fuckin' Horny Right Now.</b>", bot, update)
+            sendMessage(f"<b>OwO, I Smell Something Cheesy. Now Don't Tickle Me Here --> /{BotCommands.StatusCommand} \nBecause It'll Make Me Wet.\nI Am So Fuckin' Horny Right Now.</b>", bot, update)
     else:
         ariaDlManager.add_download(link, f'{DOWNLOAD_DIR}/{listener.uid}/', listener, name)
-        sendMessage(f"<b>Ahh, I Feel So Unstable Because Of You. Now Don't Tickle Me Here -->/{BotCommands.StatusCommand}\nThere's Not Limit On Me, I Meant By My Drive. Don't Get The Wrong Idea\nYou Can FUCK Me All You Want, Ah Crap! I Mean You Can Upload All You Want, There's No Limit</b>", bot, update)
+        sendMessage(f"<b>Ahh, I Feel So Unstable Because Of You. Now Don't Tickle Me Here --> /{BotCommands.StatusCommand} \nThere's Not Limit On Me, I Meant By My Drive. Don't Get The Wrong Idea\nYou Can FUCK Me All You Want, Ah Crap! I Mean You Can Upload All You Want, There's No Limit</b>", bot, update)
     if len(Interval) == 0:
         Interval.append(setInterval(DOWNLOAD_STATUS_UPDATE_INTERVAL, update_all_messages))
 
