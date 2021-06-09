@@ -19,9 +19,9 @@ def authorize(update,context):
             if chat_id not in AUTHORIZED_CHATS:
                 file.write(f'{chat_id}\n')
                 AUTHORIZED_CHATS.add(chat_id)
-                msg = 'Chat authorized'
+                msg = 'I can lay a extra hand here.'
             else:
-                msg = 'Already authorized chat'
+                msg = 'I am already doing my best here.'
         else:
             # Trying to authorize someone in specific
             user_id = reply_message.from_user.id
@@ -42,9 +42,9 @@ def unauthorize(update,context):
         chat_id = update.effective_chat.id
         if chat_id in AUTHORIZED_CHATS:
             AUTHORIZED_CHATS.remove(chat_id)
-            msg = 'Chat unauthorized'
+            msg = 'You dont deserve me. \n I am leaving.'
         else:
-            msg = 'Already unauthorized chat'
+            msg = 'I can sense my old dust here.'
     else:
         # Trying to authorize someone in specific
         user_id = reply_message.from_user.id
