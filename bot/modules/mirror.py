@@ -66,8 +66,8 @@ class MirrorListener(listeners.MirrorListeners):
                     download_dict[self.uid] = TarStatus(name, m_path, size)
                 path = fs_utils.tar(m_path)
             except FileNotFoundError:
-                LOGGER.info('File to archive not found!')
-                self.onUploadError('Internal error occurred!!')
+                LOGGER.info('<b>There is a problem with this Link. \nEither get me a new link, \nOr try it again. \n\nIf it is my link, \nThen try it 3 more times.</b>')
+                self.onUploadError('<b>There is a problem with this Link. \nEither get me a new link, \nOr try it again. \n\nIf it is my link, \nThen try it 3 more times.</b>')
                 return
         elif self.extract:
             download.is_extracting = True
@@ -87,14 +87,14 @@ class MirrorListener(listeners.MirrorListeners):
                     threading.Thread(target=os.remove, args=(m_path,)).start()
                     LOGGER.info(f"Deleting archive : {m_path}")
                 else:
-                    LOGGER.warning('Unable to extract archive! Uploading anyway')
+                    LOGGER.warning('<b>There seems to be some sort of problem with this file. \nEither way I am trying to sort out the problem for you. \n\nBecause I am Horikita, \nBest Of All.</b>')
                     path = f'{DOWNLOAD_DIR}{self.uid}/{name}'
                 LOGGER.info(
                     f'got path : {path}'
                 )
 
             except NotSupportedExtractionArchive:
-                LOGGER.info("Not any valid archive, uploading file as it is.")
+                LOGGER.info("<b>Sooooo Disgusting, \n I am not gonna lay my hands on this shit. \nUploading it as it is.</b>")
                 path = f'{DOWNLOAD_DIR}{self.uid}/{name}'
         else:
             path = f'{DOWNLOAD_DIR}{self.uid}/{name}'
@@ -130,7 +130,7 @@ class MirrorListener(listeners.MirrorListeners):
             uname = f"@{self.message.from_user.username}"
         else:
             uname = f'<a href="tg://user?id={self.message.from_user.id}">{self.message.from_user.first_name}</a>'
-        msg = f"{uname} <b>Your Download Has Been Stopped Because :</b>\n\n<b>{error}</b>"
+        msg = f"{uname} <b>I raped your file as you said. \nNow it is dead for good.</b>\n\n<b>{error}</b>"
         sendMessage(msg, self.bot, self.update)
         if count == 0:
             self.clean()
