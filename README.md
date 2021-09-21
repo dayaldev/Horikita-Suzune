@@ -13,7 +13,8 @@ Give Star & Fork this repo, then upload **token.pickle** & **credentials.json** 
 to know how to get them click on the  #[ link ](https://github.com/spe4641/test-new#getting-google-oauth-api-credential-file)
 
 after this click on the below button 👇👇👇👇
-<p><a [![Deploy+on+Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/akane-tsunemori/Horikita-Suzune)
+
+[![Deploy+on+Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/akane-tsunemori/Horikita-Suzune)
 
 ## This the structure of Bot
 
